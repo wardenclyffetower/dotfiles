@@ -17,6 +17,12 @@ vim.cmd([[
 -- This keymap stops that behavior and you retain your original paste register to continue to apply the same changes over and over.
 vim.api.nvim_set_keymap("v", "p", '"_dP', { silent = true, desc = "Paste And Retain to Repaste" })
 
+-- Remap CTRL Left/Right to same behaviour than in insert mode
+vim.api.nvim_set_keymap("n", "<C-Left>", "b", { noremap = true, silent = true, desc = "Word begin" })
+vim.api.nvim_set_keymap("n", "<C-Right>", "e", { noremap = true, silent = true, desc = "Word end" })
+vim.api.nvim_set_keymap("n", "<C-Down>", "<C-d>", { noremap = true, silent = true, desc = "Scroll Down" })
+vim.api.nvim_set_keymap("n", "<C-Up>", "<C-u>", { noremap = true, silent = true, desc = "Scroll Up" })
+
 -- Copy Filename of current buffer
 vim.api.nvim_set_keymap(
   "n",
