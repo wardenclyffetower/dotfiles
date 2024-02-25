@@ -23,7 +23,8 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 --color=fg+:#c0caf5,bg+:#292e42,hl+:#ff9e64 \
 --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \
 --color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a"
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi --preview '/usr/bin/batcat --force-colorization --line-range :500 {} || cat {} || tree -C {}'"
+# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi --preview '/usr/bin/batcat --force-colorization --line-range :500 {} || cat {} || tree -C {}'"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi --preview 'preview {}'"
 FZF_BASE="$HOME/.fzf"
 
 # CTRL-/ to toggle small preview window to see the full command
@@ -163,7 +164,7 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview ${(Q)realpath}'
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ${(P)word}'
 zstyle ':fzf-tab:complete:git-log:*' fzf-preview 'git log --color=always $word'
-zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help $word | bat -plman --color=always'
+zstyle ':fzf-tab:complete:git-help:*' fzf-preview 'git help $word | batcat -plman --color=always'
 zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview 'git diff $word | delta'
 zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
   'case "$group" in
