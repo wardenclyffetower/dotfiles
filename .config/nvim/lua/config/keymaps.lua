@@ -14,6 +14,19 @@ vim.cmd([[
   nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 ]])
 
+-- This keymap stops that behavior and you retain your original paste register to continue to apply the same changes over and over.
+vim.api.nvim_set_keymap("v", "p", '"_dP', { silent = true, desc = "Paste And Retain to Repaste" })
+
+-- Copy Filename of current buffer
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cf",
+  '<cmd>let @+ = expand("%")<CR>',
+  { desc = "Copy File Name of current Buffer" }
+)
+-- Copy File Path of current buffer
+vim.api.nvim_set_keymap("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
+
 -- Keep search results centred
 vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true })
