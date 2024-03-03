@@ -44,3 +44,21 @@ vim.api.nvim_set_keymap("n", "<leader><space>r", ":Neotree remote<CR>", { norema
 -- Terminal management
 vim.api.nvim_set_keymap("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true }) -- open Terminal
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>:ToggleTerm<CR>", { noremap = true, silent = true }) -- issue Esc to quit Terminal
+
+-----------------------------------------
+-- Telescope Own Keymaps
+
+-- search cb : current buffer search
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>cb",
+  ":Telescope current_buffer_fuzzy_find<cr>",
+  { noremap = true, silent = true }
+)
+-- search global buffer search
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>gb",
+  ":lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>",
+  { noremap = true, silent = true }
+)
