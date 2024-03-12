@@ -11,5 +11,8 @@ vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decr
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
-vim.o.spelllang = "en_us,fr"
+-- vim.o.spelllang = "en_us,fr"
+vim.o.spelllang = "fr"
 vim.o.spell = true
+
+vim.o.redrawtime = 3500 -- increase from 2000, to let some Telescope searches highlight
