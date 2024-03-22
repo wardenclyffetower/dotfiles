@@ -1,9 +1,9 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
-  lazy = false,
+  lazy = true,
   keys = {
-    { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "ToggleTerm" },
+    { "<leader>tm", "<cmd>ToggleTerm<cr>", desc = "ToggleTerm" },
   },
   config = function()
     require("toggleterm").setup({

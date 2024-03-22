@@ -34,16 +34,25 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
 
 -- Keep search results centred
-vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true, desc = "keep search results centered" })
+vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true, desc = "keep search results centered" })
 
 -- Explorer
-vim.api.nvim_set_keymap("n", "<leader><space>f", ":Neotree<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader><space>r", ":Neotree remote<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader><space>f", ":Neotree<CR>", { noremap = true, silent = true, desc = "Neotree" })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader><space>r",
+  ":Neotree remote<CR>",
+  { noremap = true, silent = true, desc = "Neotree remote" }
+)
 
--- Terminal management
-vim.api.nvim_set_keymap("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true }) -- open Terminal
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>:ToggleTerm<CR>", { noremap = true, silent = true }) -- issue Esc to quit Terminal
+-- Terminal quit management (the launch is managed on ToggleTerm.lua)
+vim.api.nvim_set_keymap(
+  "t",
+  "<Esc>",
+  "<C-\\><C-n>:ToggleTerm<CR>",
+  { noremap = true, silent = true, desc = "Esc quits terminal" }
+) -- issue Esc to quit Terminal
 
 -----------------------------------------
 -- Telescope Own Keymaps
@@ -51,14 +60,52 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>:ToggleTerm<CR>", { noremap = 
 -- search cb : current buffer search
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>cb",
+  "<leader>tb",
   ":Telescope current_buffer_fuzzy_find<cr>",
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "TScope Search current buffer" }
 )
 -- search global buffer search
 vim.api.nvim_set_keymap(
   "n",
-  "<leader>gb",
+  "<leader>ta",
   ":lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>",
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "TScope Search all buffers" }
+)
+
+-- lists
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>tq",
+  ":Telescope quickfix<cr>",
+  { noremap = true, silent = true, desc = "TScope Quickfix" }
+)
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>tj",
+  ":Telescope jumplist<cr>",
+  { noremap = true, silent = true, desc = "TScope Jumplist" }
+)
+
+-- symbols
+-- defintion symbol under cursor
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>td",
+  ":Telescope lsp_definitions<cr>",
+  { noremap = true, silent = true, desc = "TScope LSP Definitions" }
+)
+
+-- list of functions/methods/constructors/types....
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>tf",
+  ":Telescope lsp_document_symbols ignore_symbols=variable<cr>",
+  { noremap = true, silent = true, desc = "TScope LSP Functions" }
+)
+-- list of variables TODO : add other types
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>tv",
+  ":Telescope lsp_document_symbols ignore_symbols=function<cr>",
+  { noremap = true, silent = true, desc = "TScope LSP Variables" }
 )
