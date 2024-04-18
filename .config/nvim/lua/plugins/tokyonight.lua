@@ -12,6 +12,9 @@ return {
         float = "transparent",
       },
       terminal_colors = true,
+      on_highlights = function(hl, c)
+        hl.WinSeparator = { fg = c.white } -- Separator to ease pain on eyes
+      end,
     })
     vim.cmd([[colorscheme tokyonight]])
   end,
