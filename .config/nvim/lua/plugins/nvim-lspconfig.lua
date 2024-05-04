@@ -18,4 +18,12 @@ return {
   --     end
   --   end
   -- end),
+
+  opts = {
+    servers = {
+      gopls = {
+        filetypes = { "go", "gomod", "gowork" }, -- get rid of gotmpl FileType
+      },
+    },
+  },
 }
