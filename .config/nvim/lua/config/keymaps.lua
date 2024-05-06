@@ -96,16 +96,29 @@ vim.api.nvim_set_keymap(
 )
 
 -- list of functions/methods/constructors/types....
+-- list got from symbols_outline plugin (alphabetically sorted)
+-- array,boolean,class,component,constant,constructor,enum,enummember,event,field,file,fragment,function,interface,key,method,module,namespace,null,number,object,operator,package,property,string,struct,typeparameter,variable
+
 vim.api.nvim_set_keymap(
   "n",
   "<leader>tf",
-  ":Telescope lsp_document_symbols ignore_symbols=variable<cr>",
+  ":Telescope lsp_document_symbols ignore_symbols=array,boolean,class,component,constant,constructor,enum,enummember,event,field,file,fragment,interface,key,module,namespace,null,number,object,operator,package,property,string,struct,typeparameter,variable theme=dropdown previewer=false<cr>",
   { noremap = true, silent = true, desc = "TScope LSP Functions" }
 )
--- list of variables TODO : add other types
+-- list of variables
 vim.api.nvim_set_keymap(
   "n",
   "<leader>tv",
-  ":Telescope lsp_document_symbols ignore_symbols=function<cr>",
-  { noremap = true, silent = true, desc = "TScope LSP Variables" }
+  ":Telescope lsp_document_symbols ignore_symbols=class,component,constructor,event,field,file,fragment,function,interface,method,module,namespace,null,number,object,operator,package,string,struct,typeparameter theme=dropdown previewer=false<cr>",
+
+  { noremap = true, silent = true, desc = "TScope LSP Variables, Structs, ..." }
+)
+
+-- list of everything "object oriented"
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>to",
+  ":Telescope lsp_document_symbols ignore_symbols=array,boolean,component,constant,enum,enummember,event,file,function,key,method,module,null,number,operator,package,string,struct,typeparameter,variable theme=dropdown previewer=false<cr>",
+
+  { noremap = true, silent = true, desc = "TScope LSP OOP components" }
 )
