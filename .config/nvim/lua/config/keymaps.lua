@@ -64,12 +64,29 @@ vim.api.nvim_set_keymap(
   ":Telescope current_buffer_fuzzy_find<cr>",
   { noremap = true, silent = true, desc = "TScope Search current buffer" }
 )
+
 -- search global buffer search
 vim.api.nvim_set_keymap(
   "n",
   "<leader>ta",
   ":lua require('telescope.builtin').live_grep({grep_open_files=true})<cr>",
   { noremap = true, silent = true, desc = "TScope Search all buffers" }
+)
+
+-- search with rg args
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>tl",
+  ":lua require('telescope').extensions.live_grep_args.live_grep_args({cwd=require('lazyvim.util').root()})<CR>",
+  { noremap = true, silent = true, desc = "TScope Search (cwd) '<pattern>' -g '[!]*.extension'" }
+)
+
+-- projects
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>tp",
+  ":Telescope projects<CR>",
+  { noremap = true, silent = true, desc = "TScope Projects" }
 )
 
 -- lists
@@ -79,6 +96,7 @@ vim.api.nvim_set_keymap(
   ":Telescope quickfix<cr>",
   { noremap = true, silent = true, desc = "TScope Quickfix" }
 )
+
 vim.api.nvim_set_keymap(
   "n",
   "<leader>tj",
