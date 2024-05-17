@@ -116,6 +116,15 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   command = "if search('{{.\\+}}', 'nw') | setlocal filetype=gotmpl | endif",
 })
 
+-- Not sure if this works.. (ftplugin works better)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "neo-tree" },
+  callback = function()
+    require("ufo").detach()
+    vim.opt_local.foldenable = false
+  end
+})
+
 --
 -- autocmd BufNewFile,BufRead * if search('{{.\+}}', 'nw') | setlocal filetype=gotmpl | endif
 --
