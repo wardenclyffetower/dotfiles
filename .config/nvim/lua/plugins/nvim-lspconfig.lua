@@ -23,6 +23,24 @@ return {
     servers = {
       gopls = {
         filetypes = { "go", "gomod", "gowork" }, -- get rid of gotmpl FileType
+        capabilities = {
+          textDocument = {
+            foldingRange = {
+              dynamicRegistration = false,
+              lineFoldingOnly = true,
+            },
+          },
+        },
+      },
+      lua_ls = {
+        capabilities = {
+          textDocument = {
+            foldingRange = {
+              dynamicRegistration = false,
+              lineFoldingOnly = true,
+            },
+          },
+        },
       },
     },
   },
