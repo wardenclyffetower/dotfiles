@@ -11,6 +11,10 @@ return {
       filetype = "gotmpl",
       used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "html" },
     }
+    opts.highlight = {
+      enable = false,
+      disable = { "lua" },
+    }
     opts.rainbow = {
       enable = true,
       query = "rainbow-parens",
