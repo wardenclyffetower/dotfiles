@@ -9,7 +9,16 @@ return {
         files = { "src/parser.c" },
       },
       filetype = "gotmpl",
-      used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "html" },
+      used_by = { "gohtmltmpl", "gotexttmpl", "gotmpl", "gohtml" },
+    }
+    parser_config.smarty = {
+      install_info = {
+        url = "https://github.com/Kibadda/tree-sitter-smarty",
+        files = { "src/parser.c" },
+        branch = "main",
+      },
+      filetype = "smarty",
+      used_by = { "tpl" },
     }
     opts.highlight = {
       enable = false,
