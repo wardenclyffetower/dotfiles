@@ -61,7 +61,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
   "n",
   "<leader>tb",
-  ":Telescope current_buffer_fuzzy_find<cr>",
+  ":Telescope buffers sort_lastused=true ignore_current_buffer=true theme=dropdown show_all_buffers=true previewer=false<cr>",
   { noremap = true, silent = true, desc = "TScope Search current buffer" }
 )
 

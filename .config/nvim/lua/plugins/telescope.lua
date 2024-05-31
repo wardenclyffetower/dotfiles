@@ -38,6 +38,12 @@ return {
         layout_config = { width = 0.99, height = 0.99, preview_cutoff = 1 },
         path_display = { "smart" },
         sorting_strategy = "ascending",
+        pickers = {
+          buffers = {
+            previewer = false,
+            theme = "dropdown",
+          },
+        },
         winblend = 0,
         mappings = {
           i = {

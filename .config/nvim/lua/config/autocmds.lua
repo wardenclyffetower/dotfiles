@@ -113,7 +113,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
 -- })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  command = "if search('{{.\\+}}', 'nw') | setlocal filetype=gotmpl | endif",
+  command =
+  "if search('{{.\\+}}', 'nw') && ((expand ('%:e') == 'gotmpl') || (expand ('%:e') == 'gohtml') || (expand ('%:e') == 'gotexttmpl') || (expand ('%:e') == 'gohtmltmpl')) | setlocal filetype=gotmpl | endif",
 })
 
 -- Not sure if this works.. (ftplugin works better)
