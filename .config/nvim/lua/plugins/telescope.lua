@@ -44,6 +44,8 @@ return {
             ["<CR>"] = select_one_or_multi,
           },
         },
+        prompt_prefix = "󰼛 ",
+        selection_caret = "󱞩 ",
       }
 
       opts.extensions = {
