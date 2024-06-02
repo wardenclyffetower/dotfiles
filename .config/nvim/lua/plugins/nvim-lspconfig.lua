@@ -21,6 +21,9 @@ return {
 
   opts = {
     servers = {
+      smarty_ls = {
+        filetypes = { "smarty" },
+      },
       gopls = {
         filetypes = { "go", "gomod", "gowork" }, -- get rid of gotmpl FileType
         capabilities = {
