@@ -5,6 +5,24 @@
 -- work with the system clipboard (hopefully)
 vim.o.clipboard = "unnamedplus"
 
+--" Workaround for neovim wl-clipboard and netrw interaction hang
+--" (see: https://github.com/neovim/neovim/issues/6695 and
+--" https://github.com/neovim/neovim/issues/9806)
+if vim.fn.has("linux") then -- we don't need this on mac !
+  vim.g.clipboard = {
+    name = "myClipboard",
+    copy = {
+      ["+"] = { "wl-copy" },
+      ["*"] = { "wl-copy" },
+    },
+    paste = {
+      ["+"] = { "wl-paste", "-o" },
+      ["*"] = { "wl-paste", "-o" },
+    },
+    cache_enabled = false,
+  }
+end
+
 -- ufo and folding
 vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
