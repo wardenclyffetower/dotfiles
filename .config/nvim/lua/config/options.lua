@@ -16,8 +16,8 @@ if vim.fn.has("linux") then -- we don't need this on mac !
       ["*"] = { "wl-copy" },
     },
     paste = {
-      ["+"] = { "wl-paste", "-o" },
-      ["*"] = { "wl-paste", "-o" },
+      ["+"] = { "wl-paste", "-n" },
+      ["*"] = { "wl-paste", "-n" },
     },
     cache_enabled = false,
   }
@@ -29,6 +29,9 @@ vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decr
 vim.o.foldlevelstart = 1
 vim.o.foldnestmax = 3
 vim.o.foldenable = true
+
+-- Prevent LSP to mess with highlight
+vim.highlight.priorities.semantic_tokens = 95
 
 -- vim.o.spelllang = "en_us,fr"
 vim.o.spelllang = "fr"

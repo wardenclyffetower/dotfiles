@@ -105,7 +105,7 @@ vim.api.nvim_set_keymap(
 )
 
 -- symbols
--- defintion symbol under cursor
+-- definition symbol under cursor
 vim.api.nvim_set_keymap(
   "n",
   "<leader>td",
